@@ -67,6 +67,16 @@ ambil("halaman-katalog").addEventListener("change", tampilkanKatalog);
 // Fitur akun login
 const USERNAME = "user";
 const PASSWORD = "1111";
+const inputPassword = ambil("isian-password");
+const tombolPassword = ambil("tombol-password");
+
+tombolPassword.addEventListener("click", function () {
+  const terlihat = inputPassword.type === "password";
+  inputPassword.type = terlihat ? "text" : "password";
+  this.setAttribute("aria-label", terlihat ? "Sembunyikan password" : "Tampilkan password");
+  this.setAttribute("title", terlihat ? "Sembunyikan password" : "Tampilkan password");
+  this.setAttribute("aria-pressed", String(terlihat));
+});
 
 // Fitur masuk (login), setelah berhasil kembali ke katalog
 ambil("form-login").addEventListener("submit", function (e) {
